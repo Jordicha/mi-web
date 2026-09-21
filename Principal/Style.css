@@ -1,0 +1,260 @@
+:root {
+  --negro: #0a0a0a;
+  --blanco: #ffffff;
+  --gris: #cfcfcf;
+  --borde: #ffffff;
+  --fondo-seccion: rgba(255, 255, 255, 0.04);
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo general */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--negro);
+  color: var(--blanco);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  line-height: 1.6;
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+/* Cabecera principal */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(255, 255, 255, 0.04) 3px,
+      rgba(255, 255, 255, 0.04) 4px
+    );
+}
+
+/* Caja interior de la cabecera */
+.hero__inner {
+  max-width: 900px;
+  width: 100%;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 2px solid var(--borde);
+  background: rgba(0, 0, 0, 0.78);
+  box-shadow:
+    0 0 0 4px #000,
+    0 0 0 6px #fff,
+    14px 14px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Etiqueta PLAYER */
+.hero__level {
+  margin: 0 0 0.5rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+}
+
+/* Nombre */
+.hero__name {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  line-height: 1.1;
+}
+
+/* Frase */
+.hero__phrase {
+  margin: 1rem 0 0;
+  min-height: 2.4em;
+  color: var(--gris);
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+/* Navegación principal */
+.hero__nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+/* Enlaces del menú */
+.hero__nav a {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--borde);
+  color: var(--blanco);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Estado hover y focus */
+.hero__nav a:hover,
+.hero__nav a:focus-visible,
+.hero__nav a.activo {
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+/* Focus visible accesible */
+a:focus-visible {
+  outline: 2px solid var(--blanco);
+  outline-offset: 3px;
+}
+
+/* Secciones principales */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* Títulos de sección */
+.section h2 {
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border-bottom: 2px solid var(--blanco);
+  padding-bottom: 0.5rem;
+}
+
+/* Artículos */
+.section article {
+  max-width: 800px;
+}
+
+/* Párrafos dentro de artículos */
+.section article p {
+  margin: 0 0 1rem;
+}
+
+/* Lista de logros */
+.log {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elemento de log */
+.log li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: var(--fondo-seccion);
+}
+
+/* Insignia LOG */
+.log__badge {
+  align-self: start;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--blanco);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+/* Lista de gustos */
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Etiqueta de gusto */
+.tags li {
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--blanco);
+  background: rgba(255, 255, 255, 0.06);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+/* Pie de página */
+.footer {
+  border-top: 2px solid var(--blanco);
+  padding: 2rem 1rem;
+  text-align: center;
+  background: #000;
+}
+
+/* Datos de contacto */
+.footer address {
+  font-style: normal;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 900px;
+  margin: 0 auto 1rem;
+}
+
+/* Enlaces del footer */
+.footer a {
+  color: var(--blanco);
+  text-decoration: underline dotted;
+}
+
+/* Nota del footer */
+.footer__note {
+  margin: 0;
+  color: var(--gris);
+  font-size: 0.85rem;
+}
+
+/* Animación de aparición */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Estado visible */
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Accesibilidad: reducir movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero__phrase {
+    min-height: auto;
+  }
+}
+.enlace{
+    color: white;
+}

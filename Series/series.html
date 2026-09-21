@@ -1,0 +1,185 @@
+<!-- series.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Series favoritas de Jordi Chafer Benavent.">
+  <meta name="author" content="Jordi Chafer Benavent">
+  <title>Contenido favorito | Jordi Chafer Benavent</title>
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="Series.css">
+
+  <!-- Script principal -->
+  <script src="Series.js" defer></script>
+</head>
+<body>
+
+  <!-- Cabecera secundaria -->
+  <header class="subhero">
+    <div class="subhero__inner">
+      <p class="subhero__level">PLAYER 01 // SERIES</p>
+      <h1 class="subhero__title">Contenido favorito</h1>
+      <p class="subhero__text">
+        Series, anime y animación que me gustan. Edita las tarjetas con tus favoritas.
+      </p>
+
+      <!-- Volver -->
+      <p>
+        <a href="../Principal/Index.html" class="btn">← Volver a inicio</a>
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sección: filtros -->
+    <section class="section reveal">
+      <h2>Filtrar por categoría</h2>
+
+      <div class="filters" role="group" aria-label="Filtros de series">
+        <button type="button" class="filter filter--active" data-filter="all">
+          Todas
+        </button>
+        <button type="button" class="filter" data-filter="anime">
+          Anime
+        </button>
+        <button type="button" class="filter" data-filter="animacion">
+          Animación
+        </button>
+        <button type="button" class="filter" data-filter="live-action">
+          Live-action
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección: catálogo -->
+    <section class="section reveal">
+      <h2>Mis series</h2>
+
+      <!-- Contenedor de tarjetas -->
+      <div class="series-grid" id="series-grid">
+
+        <!-- Tarjeta 1 -->
+        <article class="card" data-genero="anime">
+          <div class="card__poster" aria-hidden="true">
+            <span><img class="imagen" src="./One piece.avif" alt=""></span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">One Piece</h3>
+            <p class="card__meta">Anime · En emisión</p>
+            <p class="card__score">★★★★★</p>
+            <p class="card__comment">
+              Una corta Historia de piratas i poderes sobrenaturales con momentos muy emotivos i otros muy epicos
+            </p>
+          </div>
+        </article>
+
+        <!-- Tarjeta 2 -->
+        <article class="card" data-genero="anime">
+          <div class="card__poster" aria-hidden="true">
+            <span><img class="imagen" src="./alchemist.jpeg" alt=""></span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Full Metal Alchemist Brotherhood</h3>
+            <p class="card__meta">Anime · Terminada</p>
+            <p class="card__score">★★★★☆</p>
+            <p class="card__comment">
+              Personajes increibles con villanos a la altura i poderes espectaculares
+            </p>
+          </div>
+        </article>
+
+        <!-- Tarjeta 3 -->
+        <article class="card" data-genero="animacion">
+          <div class="card__poster" aria-hidden="true">
+            <span><img class="imagen" src="./El principe dragon.jpeg" alt=""></span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">El principe dragon</h3>
+            <p class="card__meta">Animación · Terminada</p>
+            <p class="card__score">★★★★★</p>
+            <p class="card__comment">
+              Serie de fantasia medieval perfecta
+            </p>
+          </div>
+        </article>
+
+        <!-- Tarjeta 4 -->
+        <article class="card" data-genero="animacion">
+          <div class="card__poster" aria-hidden="true">
+            <span>04</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Nombre de serie 4</h3>
+            <p class="card__meta">Animación · En emisión</p>
+            <p class="card__score">★★★★☆</p>
+            <p class="card__comment">
+              Escribe aquí por qué te gusta esta serie.
+            </p>
+          </div>
+        </article>
+
+        <!-- Tarjeta 5 -->
+        <article class="card" data-genero="live-action">
+          <div class="card__poster" aria-hidden="true">
+            <span>05</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Nombre de serie 5</h3>
+            <p class="card__meta">Live-action · En emisión</p>
+            <p class="card__score">★★★★☆</p>
+            <p class="card__comment">
+              Escribe aquí por qué te gusta esta serie.
+            </p>
+          </div>
+        </article>
+
+        <!-- Tarjeta 6 -->
+        <article class="card" data-genero="documental">
+          <div class="card__poster" aria-hidden="true">
+            <span><img class="imagen" src="./34043.jpg" alt=""></span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Arrow</h3>
+            <p class="card__meta">Live-action · Terminada</p>
+            <p class="card__score">★★★☆☆</p>
+            <p class="card__comment">
+              Buena al inicio pero alargada innecesariamente
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página con contacto -->
+  <footer id="contacto" class="footer">
+    <!-- Datos de contacto -->
+    <address>
+      <p><strong>Contacto</strong></p>
+      <p>
+        <a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a>
+      </p>
+      <p>
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </p>
+    </address>
+
+    <!-- Nota del pie -->
+    <p class="footer__note">
+      © <span id="anio"></span> Jordi Chafer Benavent
+    </p>
+  </footer>
+
+</body>
+</html>
