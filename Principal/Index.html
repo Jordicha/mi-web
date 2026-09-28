@@ -1,163 +1,196 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- Metadatos básicos -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Web personal de Jordi Chafer Benavent, estudiante de 1º DAM del IES Simarro.">
-    <meta name="author" content="Jordi Chafer Benavent">
-    <title>Jordi Chafer Benavent | Web personal</title>
+  <!-- Metadatos básicos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web personal de Jordi Chafer Benavent, estudiante de 1º DAM del IES Simarro.">
+  <meta name="author" content="Jordi Chafer Benavent">
+  <title>Jordi Chafer Benavent | Web personal</title>
 
-    <!-- Hoja de estilos -->
-    <link rel="stylesheet" href="Style.css">
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="Style.css">
 
-    <!-- Script principal -->
-    <script src="Script.js" defer></script>
+  <!-- Script principal -->
+  <script src="Script.js" defer></script>
 </head>
-
 <body>
 
-    <!-- Cabecera principal: nombre + frase -->
-    <header class="hero" id="inicio">
-        <div class="hero__inner">
-            <!-- Etiqueta informativa -->
-            <p class="hero__level">PLAYER 01 // 1º DAM</p>
+  <!-- Cabecera principal: nombre + frase -->
+  <header class="hero" id="inicio">
+    <div class="hero__inner">
+      <!-- Etiqueta informativa -->
+      <p class="hero__level">PLAYER 01 // 1º DAM</p>
 
-            <!-- Nombre -->
-            <h1 class="hero__name">Jordi Chafer Benavent</h1>
+      <!-- Fila con nombre + enemigo Space Invaders -->
+      <div class="hero__title-row">
+        <!-- Nombre -->
+        <h1 class="hero__name">Jordi Chafer Benavent</h1>
 
-            <img src="alien.png" alt="" class="alien">
+        <!-- Enemigo Space Invaders (decorativo) -->
+        <div class="invader" aria-hidden="true"></div>
+      </div>
 
-            <!-- Frase -->
-            <p class="hero__phrase" data-text="Programar me relaja. Jugar me mantiene a nivel.">
-                Programar me relaja. Jugar me mantiene a nivel.
-            </p>
+      <!-- Frase -->
+      <p class="hero__phrase" data-text="Programar me relaja. Jugar me mantiene a nivel.">
+        Programar me relaja. Jugar me mantiene a nivel.
+      </p>
 
-            <!-- Navegación principal -->
-            <nav class="hero__nav" aria-label="Navegación principal">
-                <ul>
-                    <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#he-hecho">Lo que he hecho</a></li>
-                    <li><a href="#me-gusta">Me gusta</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+      <!-- Navegación principal -->
+      <nav class="hero__nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#he-hecho">Lo que he hecho</a></li>
+          <li><a href="#me-gusta">Me gusta</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Contenido principal -->
-    <main>
+  <!-- Contenido principal -->
+  <main>
 
-        <!-- Sección: Sobre mí -->
-        <section id="sobre-mi" class="section reveal">
-            <h2>Sobre mí</h2>
+    <!-- Sección: Sobre mí -->
+    <section id="sobre-mi" class="section reveal">
+      <h2>Sobre mí</h2>
 
-            <!-- Artículo principal -->
-            <article>
-                <p>
-                    Soy Jordi Chafer Benavent, del ciclo de 1º DAM del IES Simarro.
-                </p>
-
-                <p>
-                    Quiero ser desarrollador de software y videojuegos. Me interesa la programación,
-                    el diseño de experiencias interactivas y seguir aprendiendo cada día.
-                </p>
-
-                <p>
-                    Me gusta programar porque me relaja. También disfruto del mundo gamer:
-                    videojuegos, juegos de cartas coleccionables, manga japonés y series de animación.
-                </p>
-            </article>
-        </section>
-
-        <!-- Sección: Lo que he hecho -->
-        <section id="he-hecho" class="section reveal">
-            <h2>Lo que he hecho</h2>
-
-            <!-- Artículo -->
-            <article>
-                <!-- Lista de logros -->
-                <ul class="log">
-                    <li>
-                        <span class="log__badge">LOG</span>
-                        <p><strong>Torneos locales:</strong> he participado en torneos de juegos de cartas
-                            coleccionables.</p>
-                    </li>
-                    <li>
-                        <span class="log__badge">LOG</span>
-                        <p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y
-                            diseño.</p>
-                    </li>
-                    <li>
-                        <span class="log__badge">LOG</span>
-                        <p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a
-                            crear.</p>
-                    </li>
-                    <li>
-                        <span class="log__badge">LOG</span>
-                        <p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p>
-                    </li>
-                    <li>
-                        <span class="log__badge">LOG</span>
-                        <p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de
-                            cartas.</p>
-                    </li>
-                </ul>
-            </article>
-        </section>
-
-        <!-- Sección: Me gusta -->
-        <section id="me-gusta" class="section reveal">
-            <h2>Me gusta</h2>
-
-            <!-- Artículo -->
-            <article>
-                <!-- Lista de etiquetas -->
-                <ul class="tags">
-                    <li>Videojuegos</li>
-                    <li>Juegos de cartas coleccionables</li>
-                    <li>Manga japonés</li>
-                    <li>Series de animación</li>
-                    <li>Programar</li>
-                    <li><a class="enlace" href="../Series/series.html" class="btn">
-                            Ver contenido favorito →
-                        </a>
-                    </li>
-                </ul>
-               
-            </article>
-        </section>
-
-    </main>
-
-    <!-- Pie de página con contacto -->
-    <footer id="contacto" class="footer">
-        <!-- Datos de contacto -->
-        <address>
-            <p><strong>Contacto</strong></p>
-            <p>
-                <a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a>
-            </p>
-            <p>
-                <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
-                    GitHub
-                </a>
-            </p>
-            <p>
-                <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">
-                    LinkedIn
-                </a>
-            </p>
-        </address>
-
-        <!-- Nota del pie -->
-        <p class="footer__note">
-            © <span id="anio"></span> Jordi Chafer Benavent
+      <!-- Artículo principal -->
+      <article>
+        <p>
+          Soy Jordi Chafer Benavent, del ciclo de 1º DAM del IES Simarro.
         </p>
-    </footer>
+
+        <p>
+          Quiero ser desarrollador de software y videojuegos. Me interesa la programación,
+          el diseño de experiencias interactivas y seguir aprendiendo cada día.
+        </p>
+
+        <p>
+          Me gusta programar porque me relaja. También disfruto del mundo gamer:
+          videojuegos, juegos de cartas coleccionables, manga japonés y series de animación.
+        </p>
+      </article>
+    </section>
+
+    <!-- Sección: Lo que he hecho -->
+    <section id="he-hecho" class="section reveal">
+      <h2>Lo que he hecho</h2>
+
+      <!-- Artículo -->
+      <article>
+        <!-- Lista de logros -->
+        <ul class="log">
+          <li>
+            <span class="log__badge">LOG</span>
+            <p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y diseño.</p>
+          </li>
+          <li>
+            <span class="log__badge">LOG</span>
+            <p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a crear.</p>
+          </li>
+          <li>
+            <span class="log__badge">LOG</span>
+            <p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p>
+          </li>
+          <li>
+            <span class="log__badge">LOG</span>
+            <p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de cartas.</p>
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Sección: Me gusta -->
+    <section id="me-gusta" class="section reveal">
+      <h2>Me gusta</h2>
+
+      <!-- Artículo -->
+      <article>
+        <!-- Lista de etiquetas -->
+        <ul class="tags">
+          <li>Videojuegos</li>
+          <li>Juegos de cartas coleccionables</li>
+          <li>Manga japonés</li>
+          <li>Series de animación</li>
+          <li>Programar</li>
+        </ul>
+
+        <!-- Enlace a la página de contenido favorito -->
+        <p>
+          <a href="series.html" class="btn">
+            Ver contenido favorito →
+          </a>
+        </p>
+      </article>
+    </section>
+
+    <!-- Sección: Contacto (formulario) -->
+    <section id="contacto" class="section reveal">
+      <h2>Contacto</h2>
+
+      <!-- Formulario: sustituye la action por tu endpoint de Formspree -->
+      <form class="form" id="form-contacto" action="https://formspree.io/f/xdekyodk" method="POST">
+        <!-- Honeypot anti-spam de Formspree (oculto) -->
+        <input type="text" name="_gotcha" class="form__gotcha" tabindex="-1" autocomplete="off">
+
+        <!-- Asunto opcional -->
+        <input type="hidden" name="_subject" value="Mensaje desde la web de Jordi">
+
+        <!-- Campo: nombre -->
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name">
+        </div>
+
+        <!-- Campo: email -->
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <!-- Campo: mensaje -->
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="btn btn--form" id="btn-enviar">Enviar mensaje</button>
+
+        <!-- Estado del envío (lo rellena el JS) -->
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <!-- Datos de contacto -->
+    <address>
+      <p><strong>Contacto</strong></p>
+      <p>
+        <a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a>
+      </p>
+      <p>
+        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </p>
+    </address>
+
+    <!-- Nota del pie -->
+    <p class="footer__note">
+      © <span id="anio"></span> Jordi Chafer Benavent
+    </p>
+  </footer>
 
 </body>
-
 </html>
