@@ -1,3 +1,6 @@
+/* styles.css */
+
+/* Variables de color: blanco, negro y estilo gamer */
 :root {
   --negro: #0a0a0a;
   --blanco: #ffffff;
@@ -71,12 +74,51 @@ body {
   font-size: 0.85rem;
 }
 
+/* Fila nombre + invader */
+.hero__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.75rem, 3vw, 2rem);
+  flex-wrap: nowrap;
+}
+
 /* Nombre */
 .hero__name {
   margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
   text-transform: uppercase;
-  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-size: clamp(1.6rem, 6vw, 4rem);
   line-height: 1.1;
+}
+
+/* Enemigo Space Invaders (cangrejo clásico) dibujado con box-shadow */
+.invader {
+  flex: 0 0 auto;
+  width: 66px;
+  height: 48px;
+  background: transparent;
+  color: var(--blanco);
+  box-shadow:
+    /* Fila 1 */
+    12px 0,
+    48px 0,
+    /* Fila 2 */
+    18px 6px,
+    42px 6px,
+    /* Fila 3 */
+    12px 12px, 18px 12px, 24px 12px, 30px 12px, 36px 12px, 42px 12px, 48px 12px,
+    /* Fila 4 */
+    6px 18px, 12px 18px, 24px 18px, 30px 18px, 36px 18px, 48px 18px, 54px 18px,
+    /* Fila 5 */
+    0 24px, 6px 24px, 12px 24px, 18px 24px, 24px 24px, 30px 24px, 36px 24px, 42px 24px, 48px 24px, 54px 24px, 60px 24px,
+    /* Fila 6 */
+    0 30px, 12px 30px, 18px 30px, 24px 30px, 30px 30px, 36px 30px, 42px 30px, 48px 30px, 60px 30px,
+    /* Fila 7 */
+    0 36px, 12px 36px, 48px 36px, 60px 36px,
+    /* Fila 8 */
+    12px 42px, 18px 42px, 24px 42px, 36px 42px, 42px 42px, 48px 42px;
 }
 
 /* Frase */
@@ -85,6 +127,47 @@ body {
   min-height: 2.4em;
   color: var(--gris);
   font-size: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+/* Cabecera secundaria */
+.subhero {
+  padding: 4rem 1rem 2rem;
+  border-bottom: 2px solid var(--blanco);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 3px,
+      rgba(255, 255, 255, 0.04) 3px,
+      rgba(255, 255, 255, 0.04) 4px
+    );
+}
+
+.subhero__inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.subhero__level {
+  margin: 0 0 0.5rem;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.85rem;
+}
+
+.subhero__title {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.subhero__text {
+  margin: 1rem 0 1.5rem;
+  color: var(--gris);
+  max-width: 70ch;
 }
 
 /* Navegación principal */
@@ -123,6 +206,114 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+/* Botón */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid var(--blanco);
+  background: transparent;
+  color: var(--blanco);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--blanco);
+  color: var(--negro);
+  transform: translateX(4px);
+}
+
+/* Botón de formulario */
+.btn--form {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn--form:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+/* Formulario */
+.form {
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+/* Campo */
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+/* Etiqueta */
+.field label {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--gris);
+}
+
+/* Inputs y textarea */
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--blanco);
+  font: inherit;
+  resize: vertical;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Foco */
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--blanco);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Placeholder */
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Honeypot oculto */
+.form__gotcha {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Estado del formulario */
+.form__status {
+  margin: 0;
+  min-height: 1.4em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.form__status.ok {
+  color: var(--blanco);
+}
+
+.form__status.error {
+  color: var(--gris);
+}
+
 /* Secciones principales */
 .section {
   max-width: 900px;
@@ -147,6 +338,15 @@ a:focus-visible {
 /* Párrafos dentro de artículos */
 .section article p {
   margin: 0 0 1rem;
+}
+
+/* Código */
+code {
+  padding: 0.15rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--blanco);
+  font-size: 0.95em;
 }
 
 /* Lista de logros */
@@ -183,7 +383,7 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin: 0;
+  margin: 0 0 1rem;
   padding: 0;
 }
 
@@ -194,6 +394,116 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.06);
   text-transform: uppercase;
   font-size: 0.85rem;
+}
+
+/* Filtros */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--blanco);
+  background: transparent;
+  color: var(--blanco);
+  font: inherit;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.filter:hover,
+.filter:focus-visible {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.filter--active {
+  background: var(--blanco);
+  color: var(--negro);
+}
+
+/* Rejilla de series */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+/* Tarjeta */
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: var(--fondo-seccion);
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  border-color: var(--blanco);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Póster */
+.card__poster {
+  display: grid;
+  place-items: center;
+  min-height: 140px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.12), rgba(0,0,0,0.8)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 8px,
+      rgba(255,255,255,0.06) 8px,
+      rgba(255,255,255,0.06) 9px
+    );
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Cuerpo */
+.card__body {
+  padding: 1rem;
+}
+
+/* Título */
+.card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Meta */
+.card__meta {
+  margin: 0 0 0.5rem;
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+/* Puntuación */
+.card__score {
+  margin: 0 0 0.75rem;
+  color: var(--blanco);
+  letter-spacing: 0.1em;
+}
+
+/* Comentario */
+.card__comment {
+  margin: 0;
+  color: var(--gris);
+}
+
+/* Tarjeta oculta */
+.card.oculta {
+  display: none;
 }
 
 /* Pie de página */
@@ -255,13 +565,18 @@ a:focus-visible {
     min-height: auto;
   }
 }
-.enlace{
-    color: white;
-}
-.alien{
-  height: 150px;
-  width: 150px;
-  position:absolute ;
-  top: 250px;
-  left: 1000px;
+
+/* Móvil: el nombre ocupa toda la línea y el marciano baja a la derecha */
+@media (max-width: 720px) {
+  .hero__title-row {
+    flex-wrap: wrap;
+  }
+
+  .hero__name {
+    flex: 1 1 100%;
+  }
+
+  .invader {
+    margin-left: auto;
+  }
 }
