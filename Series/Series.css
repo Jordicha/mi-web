@@ -306,7 +306,11 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
 }
-
+.imagen{
+  width: max-content;
+  height:max-content;
+  margin-top: 10px;
+}
 /* Tarjeta */
 .card {
   display: grid;
