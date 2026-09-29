@@ -2,183 +2,125 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Metadatos básicos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Series favoritas de Jordi Chafer Benavent.">
   <meta name="author" content="Jordi Chafer Benavent">
   <title>Contenido favorito | Jordi Chafer Benavent</title>
 
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="Series.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 
-  <!-- Script principal -->
+  <link rel="stylesheet" href="Series.css">
   <script src="Series.js" defer></script>
 </head>
 <body>
 
-  <!-- Cabecera secundaria -->
   <header class="subhero">
     <div class="subhero__inner">
-      <p class="subhero__level">PLAYER 01 // SERIES</p>
+      <div class="hero__topbar">
+        <p class="subhero__level">PLAYER 01 // SERIES</p>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">☀</span>
+          <span class="theme-toggle__label">Luz</span>
+        </button>
+      </div>
       <h1 class="subhero__title">Contenido favorito</h1>
-      <p class="subhero__text">
-        Series, anime y animación que me gustan. Edita las tarjetas con tus favoritas.
-      </p>
-
-      <!-- Volver -->
-      <p>
-        <a href="../Principal/Index.html" class="btn">← Volver a inicio</a>
-      </p>
+      <p class="subhero__text">Series, anime y animación que me gustan. Edita las tarjetas con tus favoritas.</p>
+      <p><a href="index.html" class="btn">← Volver a inicio</a></p>
     </div>
   </header>
 
   <main>
-    <!-- Sección: filtros -->
     <section class="section reveal">
       <h2>Filtrar por categoría</h2>
-
       <div class="filters" role="group" aria-label="Filtros de series">
-        <button type="button" class="filter filter--active" data-filter="all">
-          Todas
-        </button>
-        <button type="button" class="filter" data-filter="anime">
-          Anime
-        </button>
-        <button type="button" class="filter" data-filter="animacion">
-          Animación
-        </button>
-        <button type="button" class="filter" data-filter="live-action">
-          Live-action
-        </button>
+        <button type="button" class="filter filter--active" data-filter="all">Todas</button>
+        <button type="button" class="filter" data-filter="anime">Anime</button>
+        <button type="button" class="filter" data-filter="animacion">Animación</button>
+        <button type="button" class="filter" data-filter="live-action">Live-action</button>
+        <button type="button" class="filter" data-filter="documental">Documental</button>
       </div>
     </section>
 
-    <!-- Sección: catálogo -->
     <section class="section reveal">
       <h2>Mis series</h2>
-
-      <!-- Contenedor de tarjetas -->
       <div class="series-grid" id="series-grid">
-
-        <!-- Tarjeta 1 -->
         <article class="card" data-genero="anime">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./One piece.avif" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="One piece.avif" alt="" class="imagen" ></span></div>
           <div class="card__body">
             <h3 class="card__title">One Piece</h3>
-            <p class="card__meta">Anime · En emisión</p>
+            <p class="card__meta">Anime · En Emision</p>
             <p class="card__score">★★★★★</p>
-            <p class="card__comment">
-              Una corta Historia de piratas i poderes sobrenaturales con momentos muy emotivos i otros muy epicos
-            </p>
+            <p class="card__comment">Serie de piratas corta pero muy epica</p>
           </div>
         </article>
-
-        <!-- Tarjeta 2 -->
         <article class="card" data-genero="anime">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./alchemist.jpeg" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="alchemist.jpeg" alt="" class="imagen" ></span></div>
           <div class="card__body">
-            <h3 class="card__title">Full Metal Alchemist Brotherhood</h3>
+            <h3 class="card__title">Full Metal Alchemist</h3>
             <p class="card__meta">Anime · Terminada</p>
             <p class="card__score">★★★★☆</p>
-            <p class="card__comment">
-              Personajes increibles con villanos a la altura i poderes espectaculares
-            </p>
+            <p class="card__comment">Muy buena pero la cagaron con el final de la primera version</p>
           </div>
         </article>
-
-        <!-- Tarjeta 3 -->
         <article class="card" data-genero="animacion">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./El principe dragon.jpeg" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="El principe dragon.jpeg" alt="" class="imagen" ></span></div>
           <div class="card__body">
-            <h3 class="card__title">El principe dragon</h3>
+            <h3 class="card__title">El Principe Dragon</h3>
             <p class="card__meta">Animación · Terminada</p>
             <p class="card__score">★★★★★</p>
-            <p class="card__comment">
-              Serie de fantasia medieval perfecta
-            </p>
+            <p class="card__comment">Serie de fantasia medieval perfecta</p>
           </div>
         </article>
-
-        <!-- Tarjeta 4 -->
         <article class="card" data-genero="animacion">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./images2.jpeg" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="images2.jpeg" alt="" class="imagen" ></span></div>
           <div class="card__body">
             <h3 class="card__title">Gameoverse</h3>
-            <p class="card__meta">Animación · En emisión</p>
+            <p class="card__meta">Animación · En Emision</p>
             <p class="card__score">★★★★☆</p>
-            <p class="card__comment">
-              Solo hay un episodio pero tiene muy buen aspecto
-            </p>
+            <p class="card__comment">Solo un episodio pero tiene muy buena pinta</p>
           </div>
         </article>
-
-        <!-- Tarjeta 5 -->
         <article class="card" data-genero="live-action">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./images.jpeg" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="images.jpeg" alt="" class="imagen" ></span></div>
           <div class="card__body">
-            <h3 class="card__title">One Piece Netflix</h3>
+            <h3 class="card__title">One Piece - Netflix</h3>
             <p class="card__meta">Live-action · En emisión</p>
             <p class="card__score">★★★★☆</p>
-            <p class="card__comment">
-              Historia bien adaptada pero con efectos regulares a veces
-            </p>
+            <p class="card__comment">Buena adaptacion pero efectos raros en algunas escenas</p>
           </div>
         </article>
-
-        <!-- Tarjeta 6 -->
         <article class="card" data-genero="documental">
-          <div class="card__poster" aria-hidden="true">
-            <span><img class="imagen" src="./34043.jpg" alt=""></span>
-          </div>
+          <div class="card__poster" aria-hidden="true"><span><img src="34043.jpg" alt="" class="imagen" ></span></div>
           <div class="card__body">
             <h3 class="card__title">Arrow</h3>
             <p class="card__meta">Live-action · Terminada</p>
             <p class="card__score">★★★☆☆</p>
-            <p class="card__comment">
-              Buena al inicio pero alargada innecesariamente
-            </p>
+            <p class="card__comment">Buena al inicio pero alargada innecesariamente</p>
           </div>
         </article>
-
       </div>
     </section>
+
+  
   </main>
 
-  <!-- Pie de página con contacto -->
-  <footer id="contacto" class="footer">
-    <!-- Datos de contacto -->
+  <footer class="footer">
     <address>
       <p><strong>Contacto</strong></p>
-      <p>
-        <a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a>
-      </p>
-      <p>
-        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </p>
+      <p><a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a></p>
+      <p><a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+      <p><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </address>
-
-    <!-- Nota del pie -->
-    <p class="footer__note">
-      © <span id="anio"></span> Jordi Chafer Benavent
-    </p>
+    <p class="footer__note">© <span id="anio"></span> Jordi Chafer Benavent</p>
   </footer>
 
 </body>

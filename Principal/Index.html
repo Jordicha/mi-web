@@ -2,42 +2,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Metadatos básicos -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Web personal de Jordi Chafer Benavent, estudiante de 1º DAM del IES Simarro.">
   <meta name="author" content="Jordi Chafer Benavent">
   <title>Jordi Chafer Benavent | Web personal</title>
 
-  <!-- Hoja de estilos -->
-  <link rel="stylesheet" href="Style.css">
+  <!-- Aplica el tema guardado antes de pintar (evita parpadeo) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
 
-  <!-- Script principal -->
+  <link rel="stylesheet" href="Style.css">
   <script src="Script.js" defer></script>
 </head>
 <body>
 
-  <!-- Cabecera principal: nombre + frase -->
+  <!-- Cabecera principal -->
   <header class="hero" id="inicio">
     <div class="hero__inner">
-      <!-- Etiqueta informativa -->
-      <p class="hero__level">PLAYER 01 // 1º DAM</p>
-
-      <!-- Fila con nombre + enemigo Space Invaders -->
-      <div class="hero__title-row">
-        <!-- Nombre -->
-        <h1 class="hero__name">Jordi Chafer Benavent</h1>
-
-        <!-- Enemigo Space Invaders (decorativo) -->
-        <div class="invader" aria-hidden="true"></div>
+      <div class="hero__topbar">
+        <p class="hero__level">PLAYER 01 // 1º DAM</p>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">☀</span>
+          <span class="theme-toggle__label">Luz</span>
+        </button>
       </div>
 
-      <!-- Frase -->
+      <div class="hero__title-row">
+        <h1 class="hero__name">Jordi Chafer Benavent</h1>
+        <!-- Alien: botón que abre el minijuego -->
+        <img src="./alien.png" alt="" id="invader-btn" height="200px" width="200px">
+      </div>
+
       <p class="hero__phrase" data-text="Programar me relaja. Jugar me mantiene a nivel.">
         Programar me relaja. Jugar me mantiene a nivel.
       </p>
 
-      <!-- Navegación principal -->
       <nav class="hero__nav" aria-label="Navegación principal">
         <ul>
           <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -49,147 +56,104 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
   <main>
-
-    <!-- Sección: Sobre mí -->
     <section id="sobre-mi" class="section reveal">
       <h2>Sobre mí</h2>
-
-      <!-- Artículo principal -->
       <article>
-        <p>
-          Soy Jordi Chafer Benavent, del ciclo de 1º DAM del IES Simarro.
-        </p>
-
-        <p>
-          Quiero ser desarrollador de software y videojuegos. Me interesa la programación,
-          el diseño de experiencias interactivas y seguir aprendiendo cada día.
-        </p>
-
-        <p>
-          Me gusta programar porque me relaja. También disfruto del mundo gamer:
-          videojuegos, juegos de cartas coleccionables, manga japonés y series de animación.
-        </p>
+        <p>Soy Jordi Chafer Benavent, del ciclo de 1º DAM del IES Simarro.</p>
+        <p>Quiero ser desarrollador de software y videojuegos. Me interesa la programación, el diseño de experiencias interactivas y seguir aprendiendo cada día.</p>
+        <p>Me gusta programar porque me relaja. También disfruto del mundo gamer: videojuegos, juegos de cartas coleccionables, manga japonés y series de animación.</p>
       </article>
     </section>
 
-    <!-- Sección: Lo que he hecho -->
     <section id="he-hecho" class="section reveal">
       <h2>Lo que he hecho</h2>
-
-      <!-- Artículo -->
       <article>
-        <!-- Lista de logros -->
         <ul class="log">
-          <li>
-            <span class="log__badge">LOG</span>
-            <p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y diseño.</p>
-          </li>
-          <li>
-            <span class="log__badge">LOG</span>
-            <p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a crear.</p>
-          </li>
-          <li>
-            <span class="log__badge">LOG</span>
-            <p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p>
-          </li>
-          <li>
-            <span class="log__badge">LOG</span>
-            <p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de cartas.</p>
-          </li>
+          <li><span class="log__badge">LOG</span><p><strong>Torneos locales:</strong> he participado en torneos de juegos de cartas coleccionables.</p></li>
+          <li><span class="log__badge">LOG</span><p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y diseño.</p></li>
+          <li><span class="log__badge">LOG</span><p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a crear.</p></li>
+          <li><span class="log__badge">LOG</span><p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p></li>
+          <li><span class="log__badge">LOG</span><p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de cartas.</p></li>
         </ul>
       </article>
     </section>
 
-    <!-- Sección: Me gusta -->
     <section id="me-gusta" class="section reveal">
       <h2>Me gusta</h2>
-
-      <!-- Artículo -->
       <article>
-        <!-- Lista de etiquetas -->
         <ul class="tags">
           <li>Videojuegos</li>
           <li>Juegos de cartas coleccionables</li>
           <li>Manga japonés</li>
           <li>Series de animación</li>
           <li>Programar</li>
+          <li>Estilo blanco y negro gamer</li>
         </ul>
-
-        <!-- Enlace a la página de contenido favorito -->
-        <p>
-          <a href="series.html" class="btn">
-            Ver contenido favorito →
-          </a>
-        </p>
+        <p><a href="../Series/series.html" class="btn">Ver contenido favorito →</a></p>
       </article>
     </section>
 
-    <!-- Sección: Contacto (formulario) -->
+    <!-- Contacto con Formspree -->
     <section id="contacto" class="section reveal">
       <h2>Contacto</h2>
-
-      <!-- Formulario: sustituye la action por tu endpoint de Formspree -->
+      <!-- Pega tu ID de Formspree en la action (sustituye TU_ID) -->
       <form class="form" id="form-contacto" action="https://formspree.io/f/xdekyodk" method="POST">
-        <!-- Honeypot anti-spam de Formspree (oculto) -->
         <input type="text" name="_gotcha" class="form__gotcha" tabindex="-1" autocomplete="off">
-
-        <!-- Asunto opcional -->
         <input type="hidden" name="_subject" value="Mensaje desde la web de Jordi">
-
-        <!-- Campo: nombre -->
         <div class="field">
           <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre">
         </div>
-
-        <!-- Campo: email -->
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
         </div>
-
-        <!-- Campo: mensaje -->
         <div class="field">
           <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+          <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."></textarea>
         </div>
-
-        <!-- Botón de envío -->
         <button type="submit" class="btn btn--form" id="btn-enviar">Enviar mensaje</button>
-
-        <!-- Estado del envío (lo rellena el JS) -->
         <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </section>
-
   </main>
 
-  <!-- Pie de página -->
+  <!-- Modal del minijuego -->
+  <div class="game-modal" id="game-modal" role="dialog" aria-modal="true" aria-labelledby="game-title" hidden>
+    <div class="game-modal__box">
+      <div class="game-modal__top">
+        <h2 id="game-title" class="game-title">Space Invaders</h2>
+        <button type="button" id="game-close" class="theme-toggle">✕ Cerrar</button>
+      </div>
+
+      <div class="game-hud" aria-hidden="true">
+        <span>SCORE <b id="g-score">0</b></span>
+        <span>OLEADA <b id="g-wave">1</b></span>
+        <span>VIDAS <b id="g-lives">3</b></span>
+        <span>RÉCORD <b id="g-best">0</b></span>
+      </div>
+
+      <canvas id="game-canvas" width="600" height="480" aria-label="Minijuego Space Invaders"></canvas>
+
+      <div class="game-controls">
+        <button type="button" id="g-left" aria-label="Mover izquierda">◀</button>
+        <button type="button" id="g-fire" aria-label="Disparar">FIRE</button>
+        <button type="button" id="g-right" aria-label="Mover derecha">▶</button>
+        <button type="button" id="g-pause" aria-label="Pausa">❚❚</button>
+      </div>
+
+      <p class="game-help">← → / A D mover · ESPACIO disparar · P pausa · ESC salir</p>
+      <p class="game-state" id="game-state" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
   <footer class="footer">
-    <!-- Datos de contacto -->
     <address>
       <p><strong>Contacto</strong></p>
-      <p>
-        <a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a>
-      </p>
-      <p>
-        <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-      </p>
-      <p>
-        <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </p>
+      <p>>jorchaben@alu.edu.gva.es</p>
     </address>
-
-    <!-- Nota del pie -->
-    <p class="footer__note">
-      © <span id="anio"></span> Jordi Chafer Benavent
-    </p>
+    <p class="footer__note">© <span id="anio"></span> Jordi Chafer Benavent</p>
   </footer>
 
 </body>
