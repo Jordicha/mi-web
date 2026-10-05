@@ -448,3 +448,26 @@ code {
   height: 300px;
   width: max-content;
 }
+/* ====== TEMA OSCURO (por defecto) ====== */
+:root {
+  --bg: #0a0a0a; --fg: #ffffff; --muted: #cfcfcf;
+  --border: #ffffff; --panel: rgba(0,0,0,.78); --card-bg: rgba(255,255,255,.04);
+  --field: rgba(255,255,255,.06); --scan: rgba(255,255,255,.04); --glow: rgba(255,255,255,.08);
+}
+/* ====== TEMA CLARO ====== */
+html[data-theme="light"] {
+  --bg: #f2f2f2; --fg: #0a0a0a; --muted: #3a3a3a;
+  --border: #0a0a0a; --panel: rgba(255,255,255,.86); --card-bg: rgba(0,0,0,.04);
+  --field: rgba(0,0,0,.05); --scan: rgba(0,0,0,.05); --glow: rgba(0,0,0,.10);
+}
+body { background-color: var(--bg); color: var(--fg); transition: background-color .25s, color .25s; }
+
+/* ====== Botón de tema ====== */
+.theme-toggle {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .5rem .9rem; border: 1px solid var(--border);
+  background: transparent; color: var(--fg);
+  font: inherit; text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; cursor: pointer;
+}
+.theme-toggle:hover, .theme-toggle:focus-visible { background: var(--fg); color: var(--bg); }
+.theme-toggle__icon { font-size: 1rem; line-height: 1; }

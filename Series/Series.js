@@ -5,7 +5,37 @@ const anio = document.getElementById("anio");
 if (anio) {
   anio.textContent = new Date().getFullYear();
 }
-
+/* ====== MODO CLARO / OSCURO (delegación: vale para index y series) ====== */
+function leerTema() {
+  try {
+    let t = localStorage.getItem("theme");
+    if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return t;
+  } catch (e) { return "dark"; }
+}
+function pintarBotonTema(tema) {
+  document.querySelectorAll("#theme-toggle").forEach((b) => {
+    const claro = tema === "light";
+    b.setAttribute("aria-pressed", String(claro));
+    const i = b.querySelector(".theme-toggle__icon");
+    const l = b.querySelector(".theme-toggle__label");
+    if (i) i.textContent = claro ? "☾" : "☀";
+    if (l) l.textContent = claro ? "Oscuro" : "Luz";
+  });
+}
+function aplicarTema(tema) {
+  document.documentElement.setAttribute("data-theme", tema);
+  pintarBotonTema(tema);
+}
+aplicarTema(leerTema());
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("#theme-toggle");
+  if (!b) return;
+  const actual = document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+  const nuevo = actual === "light" ? "dark" : "light";
+  try { localStorage.setItem("theme", nuevo); } catch (err) {}
+  aplicarTema(nuevo);
+});
 // Efecto de máquina de escribir en la frase de la cabecera
 const frase = document.querySelector(".hero__phrase");
 
