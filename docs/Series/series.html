@@ -128,14 +128,34 @@
         <button type="submit" class="btn btn--form">Buscar</button>
       </form>
     </section>
+    <section id="contacto" class="section reveal">
+      <h2>Contacto</h2>
+      <!-- Pega tu ID de Formspree en la action (sustituye TU_ID) -->
+      <form class="form" id="form-contacto" action="https://formspree.io/f/xdekyodk" method="POST">
+        <input type="text" name="_gotcha" class="form__gotcha" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="Mensaje desde la web de Jordi">
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--form" id="btn-enviar">Enviar mensaje</button>
+        <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
   </main>
 
   <footer class="footer">
     <address>
       <p><strong>Contacto</strong></p>
-      <p><a href="mailto:tu.correo@ejemplo.com">tu.correo@ejemplo.com</a></p>
-      <p><a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-      <p><a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p>>jorchaben@alu.edu.gva.es</p>
     </address>
     <p class="footer__note">© <span id="anio"></span> Jordi Chafer Benavent</p>
   </footer>

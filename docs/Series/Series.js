@@ -185,3 +185,52 @@ filtros.forEach((boton) => {
 
   cargar(CIUDAD_INICIAL);
 })();
+const formulario = document.getElementById("form-contacto");
+if (formulario) {
+  const estado = document.getElementById("form-status");
+  const boton = document.getElementById("btn-enviar");
+  const endpoint = FORM_ENDPOINT || formulario.getAttribute("action");
+
+  const escribirEstado = (m, t) => {
+    if (!estado) return;
+    estado.textContent = m;
+    estado.classList.remove("ok", "error");
+    if (t) estado.classList.add(t);
+  };
+
+  formulario.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+
+    // Aviso si no has configurado tu ID de Formspree
+    if (!endpoint || endpoint.indexOf("TU_ID") !== -1) {
+      escribirEstado("✖ Configura tu ID de Formspree en el formulario.", "error");
+      return;
+    }
+
+    if (!formulario.checkValidity()) { formulario.reportValidity(); return; }
+
+    const datos = Object.fromEntries(new FormData(formulario).entries());
+
+    if (boton) { boton.disabled = true; boton.textContent = "Enviando..."; }
+    escribirEstado("Enviando mensaje...", null);
+
+    try {
+      const r = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(datos)
+      });
+
+      if (r.ok) {
+        escribirEstado("✔ Mensaje enviado. ¡Gracias!", "ok");
+        formulario.reset();
+      } else {
+        escribirEstado("✖ No se pudo enviar. Inténtalo de nuevo.", "error");
+      }
+    } catch (e) {
+      escribirEstado("✖ Error de conexión. Inténtalo de nuevo.", "error");
+    } finally {
+      if (boton) { boton.disabled = false; boton.textContent = "Enviar mensaje"; }
+    }
+  });
+}
