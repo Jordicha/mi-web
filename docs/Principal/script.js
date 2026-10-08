@@ -392,3 +392,59 @@ if (formulario) {
   window.addEventListener("keydown", onKeyDown);
   window.addEventListener("keyup", onKeyUp);
 })();
+/* ====== WIDGET TIEMPO (WeatherAPI) ====== */
+(function () {
+  const API_KEY = "dc56c1f9dcdb46549c0130913260810";       // ← pega la que te dio weatherapi.com
+  const CIUDAD_INICIAL = "jativa";   // ← tu ciudad por defecto
+  const cont = document.getElementById("weather");
+  const form = document.getElementById("weather-form");
+  if (!cont || !form) return;
+
+  const input = document.getElementById("weather-city");
+
+  function renderError(msg) {
+    cont.innerHTML = '<p class="weather__error">✖ ' + msg + '</p>';
+  }
+
+  function render(data) {
+    const loc = data.location;
+    const c = data.current;
+    cont.innerHTML =
+      '<div class="weather__grid">' +
+        '<img class="weather__icon" src="https:' + c.condition.icon + '" alt="' + c.condition.text + '">' +
+        '<div>' +
+          '<h3 class="weather__city">' + loc.name + ', ' + loc.country + '</h3>' +
+          '<p class="weather__cond">' + c.condition.text + '</p>' +
+          '<p class="weather__temp">' + c.temp_c + '<small>°C</small></p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="weather__meta">' +
+        '<span>Humedad <b>' + c.humidity + '%</b></span>' +
+        '<span>Viento <b>' + c.wind_kph + ' km/h</b></span>' +
+        '<span>Sensación <b>' + c.feelslike_c + '°C</b></span>' +
+        '<span>Actualizado <b>' + c.last_updated + '</b></span>' +
+      '</div>';
+  }
+
+  async function cargar(ciudad) {
+    cont.innerHTML = '<p class="weather__loading">Cargando…</p>';
+    try {
+      const url = "https://api.weatherapi.com/v1/current.json?key=" + API_KEY + "&q=" + encodeURIComponent(ciudad) + "&lang=es";
+      const r = await fetch(url);
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      const data = await r.json();
+      render(data);
+    } catch (e) {
+      renderError("No se pudo cargar el tiempo. Revisa la API key o la ciudad.");
+      console.error(e);
+    }
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const ciudad = input.value.trim();
+    if (ciudad) cargar(ciudad);
+  });
+
+  cargar(CIUDAD_INICIAL);
+})();

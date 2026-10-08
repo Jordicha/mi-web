@@ -1,6 +1,7 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,13 +16,14 @@
         var t = localStorage.getItem("theme");
         if (!t) t = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", t);
-      } catch (e) {}
+      } catch (e) { }
     })();
   </script>
 
   <link rel="stylesheet" href="./Principal/style.css">
   <script src="./Principal/script.js" defer></script>
 </head>
+
 <body>
 
   <!-- Cabecera principal -->
@@ -61,8 +63,10 @@
       <h2>Sobre mí</h2>
       <article>
         <p>Soy Jordi Chafer Benavent, del ciclo de 1º DAM del IES Simarro.</p>
-        <p>Quiero ser desarrollador de software y videojuegos. Me interesa la programación, el diseño de experiencias interactivas y seguir aprendiendo cada día.</p>
-        <p>Me gusta programar porque me relaja. También disfruto del mundo gamer: videojuegos, juegos de cartas coleccionables, manga japonés y series de animación.</p>
+        <p>Quiero ser desarrollador de software y videojuegos. Me interesa la programación, el diseño de experiencias
+          interactivas y seguir aprendiendo cada día.</p>
+        <p>Me gusta programar porque me relaja. También disfruto del mundo gamer: videojuegos, juegos de cartas
+          coleccionables, manga japonés y series de animación.</p>
       </article>
     </section>
 
@@ -70,11 +74,21 @@
       <h2>Lo que he hecho</h2>
       <article>
         <ul class="log">
-          <li><span class="log__badge">LOG</span><p><strong>Torneos locales:</strong> he participado en torneos de juegos de cartas coleccionables.</p></li>
-          <li><span class="log__badge">LOG</span><p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y diseño.</p></li>
-          <li><span class="log__badge">LOG</span><p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a crear.</p></li>
-          <li><span class="log__badge">LOG</span><p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p></li>
-          <li><span class="log__badge">LOG</span><p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de cartas.</p></li>
+          <li><span class="log__badge">LOG</span>
+            <p><strong>Torneos locales:</strong> he participado en torneos de juegos de cartas coleccionables.</p>
+          </li>
+          <li><span class="log__badge">LOG</span>
+            <p><strong>Videojuegos a diario:</strong> juego todos los días y analizo mecánicas, estilos y diseño.</p>
+          </li>
+          <li><span class="log__badge">LOG</span>
+            <p><strong>Programación:</strong> practico código como hobby porque me relaja y me ayuda a crear.</p>
+          </li>
+          <li><span class="log__badge">LOG</span>
+            <p><strong>Formación:</strong> estoy estudiando 1º DAM en el IES Simarro.</p>
+          </li>
+          <li><span class="log__badge">LOG</span>
+            <p><strong>Contenido favorito:</strong> sigo manga japonés, series de animación y juegos de cartas.</p>
+          </li>
         </ul>
       </article>
     </section>
@@ -92,6 +106,20 @@
         </ul>
         <p><a href="Series/series.html" class="btn">Ver contenido favorito →</a></p>
       </article>
+    </section>
+
+    <!-- Sección: Tiempo -->
+    <section id="tiempo" class="section reveal">
+      <h2>Tiempo ahora</h2>
+
+      <div class="weather" id="weather">
+        <p class="weather__loading">Cargando…</p>
+      </div>
+
+      <form class="weather__form" id="weather-form">
+        <input type="text" id="weather-city" placeholder="Cambiar ciudad (ej. Valencia)" autocomplete="off">
+        <button type="submit" class="btn btn--form">Buscar</button>
+      </form>
     </section>
 
     <!-- Contacto con Formspree -->
@@ -157,4 +185,5 @@
   </footer>
 
 </body>
+
 </html>
