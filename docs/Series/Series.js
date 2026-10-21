@@ -1,5 +1,5 @@
 // script.js
-const FORM_ENDPOINT ="";
+const FORM_ENDPOINT;
 
 // Actualiza el año del footer
 const anio = document.getElementById("anio");
