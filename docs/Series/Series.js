@@ -1,5 +1,5 @@
 // script.js
-const FORM_ENDPOINT;
+
 
 // Actualiza el año del footer
 const anio = document.getElementById("anio");
@@ -190,7 +190,7 @@ const formulario = document.getElementById("form-contacto");
 if (formulario) {
   const estado = document.getElementById("form-status");
   const boton = document.getElementById("btn-enviar");
-  const endpoint = FORM_ENDPOINT || formulario.getAttribute("action");
+  const endpoint =formulario.getAttribute("action");
 
   const escribirEstado = (m, t) => {
     if (!estado) return;

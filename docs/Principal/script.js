@@ -1,5 +1,6 @@
 // script.js
 
+
 /* ====== CONFIG ====== */
 // Si quieres fijar el endpoint aquí, ponlo; si no, se usa la action del <form>.
 const FORM_ENDPOINT = ""; // ej: "https://formspree.io/f/abcde"
