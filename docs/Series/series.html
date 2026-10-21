@@ -55,7 +55,7 @@
       <h2>Mis series</h2>
       <div class="series-grid" id="series-grid">
         <article class="card" data-genero="anime">
-          <div class="card__poster" aria-hidden="true"><span><img src="One piece.avif" alt="" class="imagen"></span>
+          <div class="card__poster" aria-hidden="true"><span><img src="One piece.avif" alt="" class="imagen"  data-video="trailer_one_piece.mp4"></span>
           </div>
           <div class="card__body">
             <h3 class="card__title">One Piece</h3>
@@ -65,7 +65,7 @@
           </div>
         </article>
         <article class="card" data-genero="anime">
-          <div class="card__poster" aria-hidden="true"><span><img src="alchemist.jpeg" alt="" class="imagen"></span>
+          <div class="card__poster" aria-hidden="true"><span><img src="alchemist.jpeg" alt="" class="imagen" data-video="https://www.youtube.com/embed/XXXXX"></span>
           </div>
           <div class="card__body">
             <h3 class="card__title">Full Metal Alchemist</h3>
@@ -159,6 +159,14 @@
     </address>
     <p class="footer__note">© <span id="anio"></span> Jordi Chafer Benavent</p>
   </footer>
+
+  <div class="video-modal" id="video-modal" hidden>
+  <div class="video-modal__overlay"></div>
+  <div class="video-modal__content">
+    <button type="button" class="video-modal__close" aria-label="Cerrar">✖</button>
+    <div class="video-modal__video" id="video-modal__video"></div>
+  </div>
+</div>
 
 </body>
 

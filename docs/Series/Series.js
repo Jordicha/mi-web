@@ -1,4 +1,5 @@
 // script.js
+const FORM_ENDPOINT ="";
 
 // Actualiza el año del footer
 const anio = document.getElementById("anio");
@@ -234,3 +235,51 @@ if (formulario) {
     }
   });
 }
+
+/* ====== MODAL DE VIDEO ====== */
+(function () {
+  const modal = document.getElementById("video-modal");
+  const contenedorVideo = document.getElementById("video-modal__video");
+  const btnCerrar = modal.querySelector(".video-modal__close");
+  const overlay = modal.querySelector(".video-modal__overlay");
+
+  function abrirModal(urlVideo, poster) {
+    contenedorVideo.innerHTML = `
+      <video
+        controls
+        autoplay
+        muted
+        playsinline
+        preload="metadata"
+        ${poster ? `poster="${poster}"` : ""}
+        src="${urlVideo}">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    `;
+
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function cerrarModal() {
+    modal.hidden = true;
+    // Vaciar el contenedor detiene y libera el video
+    contenedorVideo.innerHTML = "";
+    document.body.style.overflow = "";
+  }
+
+  // Delegación de eventos: clic en cualquier imagen con data-video
+  document.addEventListener("click", (e) => {
+    const img = e.target.closest(".imagen[data-video]");
+    if (img) {
+      // Usamos la propia imagen como poster del video
+      abrirModal(img.dataset.video, img.src);
+    }
+  });
+
+  btnCerrar.addEventListener("click", cerrarModal);
+  overlay.addEventListener("click", cerrarModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) cerrarModal();
+  });
+})();

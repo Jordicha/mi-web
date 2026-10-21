@@ -566,3 +566,70 @@ body { background-color: var(--bg); color: var(--fg); transition: background-col
 .form__gotcha { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form__status { margin: 0; min-height: 1.4em; font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; }
 .form__status.ok, .form__status.error { color: var(--fg); }
+
+/* ====== MODAL DE VIDEO ====== */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.video-modal__content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #000;
+  border: 2px solid var(--border);
+  padding: 1rem;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.video-modal__close:hover,
+.video-modal__close:focus-visible {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.video-modal__video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.video-modal__video iframe,
+.video-modal__video video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: contain; 
+  background: #000;
+}
